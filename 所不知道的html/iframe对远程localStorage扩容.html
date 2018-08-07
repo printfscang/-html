@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iframe对远程localStorage扩容</title>
+</head>
+<body>
+	
+
+	<script type="text/javascript">
+	//iframe 通信
+		 window.addEventListender("message",functin(e){
+		 	if(e.source !==window.parent){
+		 		return;
+		 	}
+		 	localStorage.serItem(e.data.key,e.data.value);
+		 };
+	</script>
+
+
+	<script  src="http://www.yideng.com/a.php"></script>  <!--  script可以指定任何地方的跨域 -->
+
+	<img src="图片 （代码）" alt="picture">   <!-- 把代码压缩进图片 可以进行跨域
+ -->
+	<iframe src="localhost/storage.html" frameborder="0"></iframe>
+
+</body>
+</html>

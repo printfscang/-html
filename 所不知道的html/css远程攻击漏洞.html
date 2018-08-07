@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css远程攻击漏洞</title>
+	<style>
+
+	.test{
+		color:expression(alert("xss"));    /*ES6的一种表达式*/
+		background:url(javascript:alert('123'));
+	}
+	.test::content{
+		content:url('javascript:alert(xss)');
+	}
+	</style>
+</head>
+<body>
+<!-- ********************************************************************************************************************************************************************************* -->
+
+<!-- xss是一种攻击漏洞的形式
+
+尽量减少html DOM的数量 数量少这浏览器渲染快
+一个div当成10个来用   比如box-shadow :before :after 等等 -->
+
+
+
+
+	
+</body>
+</html>

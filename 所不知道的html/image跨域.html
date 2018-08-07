@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>image 实现跨域</title>
+</head>
+<body>
+
+
+<!-- ********************************************************************************************************************************************************************************* -->
+	<!-- 跨域 crossorigin="anonymous" -->
+	<img src="" crossorigin="anonymous" src="ok.png"  class="test" />
+
+	<!-- 也可以在script标签上使用crossorigin="anonymous" -->
+	<script type="text/javascript">
+	var s = Date.now();                   //创建一个当前的时间
+	var image = new Image();              //创建一个图片的对象
+	image.crossorigin="anonymous";        //设置这个是为了让别人知道你是用这个图片来测速用的
+
+	image.src = "http://yideng/ok.png";   //设置图片
+	//根据图片的回调去做一个onload
+	//依据时间差来获取网速
+	image.onload = function(){
+			var e = Date.now();
+			var w = 4 / e - s;             //获得网速  4kb 一般图片是1*1 大概3kb左右    1-1000
+										//根据获取的网速，来做一些操作，比如加载图片的清晰度等
+	};
+
+	</script>
+
+
+<!-- ********************************************************************************************************************************************************************************* -->
+
+	<!-- image 上报数据   实例网站  www.map.baidu.com
+	 系统性能监控平台   系统的bug监控    打点 -->
+	<script type="text/javascript">
+	$('.test').click(function(){
+			var image = new Image();
+			image.crossorigin="anonymous";
+
+			image.src = "http://www.yideng/ok.gif?......";     //使用gif，因为它比较小
+	});
+
+	</script>
+
+<!-- ********************************************************************************************************************************************************************************* -->
+	<!-- 为什么不用ajax
+	平时访问ajax都需要访问json接口，ajax比较重成本
+	而使用图片访问数据流量使用少 -->
+
+</body>
+</html>
